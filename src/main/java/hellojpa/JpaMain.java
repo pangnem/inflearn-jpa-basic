@@ -1,5 +1,7 @@
 package hellojpa;
 
+import hellojpa.domain.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -16,11 +18,7 @@ public class JpaMain {
         tx.begin();
 
         try {
-            long id = 103L;
-
             Member member = new Member();
-
-            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
