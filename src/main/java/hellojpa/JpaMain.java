@@ -1,6 +1,8 @@
 package hellojpa;
 
 import hellojpa.domain.Member;
+import hellojpa.domain.Order;
+import hellojpa.domain.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,7 +20,13 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Member member = new Member();
+            Order order = new Order();
+            OrderItem orderItem = new OrderItem();
+
+            order.addOrderItem(orderItem);
+
+            em.persist(orderItem);
+            em.persist(order);
 
             tx.commit();
         } catch (Exception e) {
